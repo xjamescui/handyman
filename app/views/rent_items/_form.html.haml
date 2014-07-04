@@ -1,0 +1,37 @@
+= form_for @rent_item do |f|
+  - if @rent_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@rent_item.errors.count, "error")} prohibited this rent_item from being saved:"
+      %ul
+        - @rent_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  -# .field
+  -#   = f.label :date_booked
+  -#   = f.datetime_select :date_booked
+  -# .field
+  -#   = f.label :date_start
+  -#   = f.datetime_select :date_start
+  -# .field
+  -#   = f.label :date_end
+  -#   = f.datetime_select :date_end
+  -# .field
+  -#   = f.label :planned_duration
+  -#   = f.number_field :planned_duration
+  -# .field
+  -#   = f.label :date_delivered
+  -#   = f.datetime_select :date_delivered
+  -# .field
+  -#   = f.label :date_returned
+  -#   = f.datetime_select :date_returned
+  -# .field
+  -#   = f.label :cancelled
+  -#   = f.check_box :cancelled
+  -# .field
+  -#   = f.label :rent_price
+  -#   = f.text_field :rent_price
+  -# .field
+  -#   = f.label :actual_price
+  -#   = f.text_field :actual_price
+  .actions
+    = f.submit 'Save'

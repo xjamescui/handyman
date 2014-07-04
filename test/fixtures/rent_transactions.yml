@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_booked: 2014-07-04 10:20:32
+  date_start: 2014-07-04 10:20:32
+  date_end: 2014-07-04 10:20:32
+  planned_duration: 1
+  date_delivered: 2014-07-04 10:20:32
+  date_returned: 2014-07-04 10:20:32
+  cancelled: false
+  rent_price: 
+  actual_price: 
+
+two:
+  date_booked: 2014-07-04 10:20:32
+  date_start: 2014-07-04 10:20:32
+  date_end: 2014-07-04 10:20:32
+  planned_duration: 1
+  date_delivered: 2014-07-04 10:20:32
+  date_returned: 2014-07-04 10:20:32
+  cancelled: false
+  rent_price: 
+  actual_price: 

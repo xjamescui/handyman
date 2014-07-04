@@ -6,8 +6,9 @@
       = image_tag "#{image_or_none(rentable.image_name)}", class: "rentable-image"
       = rentable.name
       = rentable.location
-      = rentable.quantity
       = rentable.category
+      = rentable.quantity
+      = link_to 'Reserve',new_rent_item_path(rentable: rentable.id), class: "reserve-button"
       -# %td= link_to 'Show', rentable
       -# %td= link_to 'Edit', edit_rentable_path(rentable)
       -# %td= link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }

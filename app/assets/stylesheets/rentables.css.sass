@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
 
+@import 'mixins'
+
 ul.rentables 
   li
     border-radius: 5px
@@ -11,7 +13,19 @@ ul.rentables
     min-width: 500px
     padding: 5px
     margin: 10px auto
+    vertical-align: top
 
     img.rentable-image
       height: 100px
       background: white
+    .reserve-button
+      float: right
+      display: inline-block
+      border-radius: 5px
+      background-color: gray
+      color: white
+      text-decoration: none
+      padding: 10px
+      &:hover
+        background-color: darkgray
+

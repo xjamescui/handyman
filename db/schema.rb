@@ -11,10 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704011025) do
+ActiveRecord::Schema.define(version: 20140704154627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rate_tables", force: true do |t|
+    t.integer  "rentable_id"
+    t.decimal  "hourly"
+    t.decimal  "daily"
+    t.decimal  "weekly"
+    t.decimal  "late_fee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rate_tables", ["rentable_id"], name: "index_rate_tables_on_rentable_id", using: :btree
+
+  create_table "rent_items", force: true do |t|
+    t.integer  "rent_transaction_id"
+    t.integer  "rentable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rent_transactions", force: true do |t|
+    t.datetime "date_booked"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.integer  "planned_duration"
+    t.datetime "date_delivered"
+    t.datetime "date_returned"
+    t.boolean  "cancelled"
+    t.decimal  "rent_price"
+    t.decimal  "actual_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rentables", force: true do |t|
     t.string   "name"
