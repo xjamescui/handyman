@@ -1,0 +1,16 @@
+%h1 Rentables
+
+%ul.rentables
+  - @rentables.each do |rentable|
+    %li  
+      = image_tag "#{image_or_none(rentable.image_name)}", class: "rentable-image"
+      = rentable.name
+      = rentable.location
+      = rentable.quantity
+      = rentable.category
+      -# %td= link_to 'Show', rentable
+      -# %td= link_to 'Edit', edit_rentable_path(rentable)
+      -# %td= link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+-# = link_to 'New Rentable', new_rentable_path
