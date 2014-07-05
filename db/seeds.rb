@@ -6,11 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 rentables = Rentable.create([
-  { name: "Compactor", location: "In Store", quantity: 5, category: "CateoryA", image_name: "compactor.png" },
-  { name: "Ground Drill", location: "In Store", quantity: 5, category: "CateoryA", image_name: "ground_drill.png" },
-  { name: "Concrete Equipment", location: "In Store", quantity: 5, category: "CateoryA", image_name: "concrete_equipment.png" },
-  { name: "Circular Saw", location: "In Store", quantity: 5, category: "CateoryA", image_name: "circular_saw.png" },
-  { name: "Chainsaw", location: "In Store", quantity: 5, category: "CateoryA" },
-  { name: "Generator Set", location: "In Store", quantity: 5, category: "CateoryA" },
-])
+                                {name: "Compactor", location: "Hamilton", quantity: 5, category: "Heavy", image_name: "compactor.png"},
+                                {name: "Ground Drill", location: "London", quantity: 5, category: "Light", image_name: "ground_drill.png"},
+                                {name: "Concrete Equipment", location: "Waterloo", quantity: 5, category: "Heavy", image_name: "concrete_equipment.png"},
+                                {name: "Circular Saw", location: "Hamilton", quantity: 5, category: "Light", image_name: "circular_saw.png"},
+                                {name: "Chainsaw", location: "Barrie", quantity: 5, category: "Light"},
+                                {name: "Generator Set", location: "Hamilton", quantity: 0, category: "Light"},
+                            ])
+
+rate_tables = RateTable.create([
+                                   {rentable: rentables[0], daily: 65, weekly: 260}, # Compactor
+                                   {rentable: rentables[1], daily: 40, weekly: 154}, # Ground Drill
+                                   {rentable: rentables[4], daily: 15, weekly: 60} # Circular Saw
+                               ])

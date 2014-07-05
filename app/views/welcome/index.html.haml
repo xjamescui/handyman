@@ -1,2 +1,4 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+%h1 Welcome to Handyman Rentals
+
+= link_to 'Customer Access', rentables_path
+= link_to 'Store Manager Access', rentables_path(manager: true)

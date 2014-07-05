@@ -1,17 +1,25 @@
+:ruby
+  manager_access = params[:manager]
 %h1 Rentables
+
+- if manager_access
+  = link_to 'New Rentable', new_rentable_path, class: "new-action-button"
 
 %ul.rentables
   - @rentables.each do |rentable|
     %li  
       = image_tag "#{image_or_none(rentable.image_name)}", class: "rentable-image"
-      = rentable.name
-      = rentable.location
-      = rentable.category
-      = rentable.quantity
-      = link_to 'Reserve',new_rent_item_path(rentable: rentable.id), class: "reserve-button"
-      -# %td= link_to 'Show', rentable
-      -# %td= link_to 'Edit', edit_rentable_path(rentable)
-      -# %td= link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .rentable-list-info
+        %h1= link_to rentable.name, rentable
+        .category
+          = rentable.category
+        .location
+          = "Store: #{rentable.location}"
+        .quantity-text{class: "#{rentable.quantity == 0 ? "not-available" : "available"}"}
+          = "#{rentable.quantity} available in store"
+      - if manager_access
+        .admin-functions
+          = link_to 'Edit', edit_rentable_path(rentable), class: "edit-action-button"
+          = link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "dangerous-action-button"
+      = link_to 'Reserve',rentable, class: "reserve-button"
 
-
--# = link_to 'New Rentable', new_rentable_path

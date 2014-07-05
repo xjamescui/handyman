@@ -1,18 +1,23 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @rentable.name
-%p
-  %b Location:
-  = @rentable.location
-%p
-  %b Quantity:
-  = @rentable.quantity
-%p
-  %b Category:
-  = @rentable.category
+.rentable-detail-container
+  %h1
+    = @rentable.name
+  = image_tag "#{image_or_none(@rentable.image_name)}", class: 'rentable-image'
+  %p
+    %b Location:
+    = @rentable.location
+  %p
+    %b Quantity:
+    = @rentable.quantity
+  %p
+    %b Category:
+    = @rentable.category
 
-= link_to 'Edit', edit_rentable_path(@rentable)
-\|
-= link_to 'Back', rentables_path
+  = link_to 'Reserve', '#', class: 'reserve-action-button'
+
+
+
+-# = link_to 'Edit', edit_rentable_path(@rentable)
+-# \|
+-# = link_to 'Back', rentables_path

@@ -7,3 +7,15 @@ $oleo-script-font-family: 'Oleo Script Swash Caps', cursive
 $main-yellow: #FDF3D0
 $main-red: #BC1C00
 $main-red-shadow: #A81900
+
+@mixin action-button($color, $hover-color, $text-color)
+  display: inline-block
+  border-radius: 5px
+  background-color: $color
+  color: $text-color
+  text-decoration: none
+  padding: 10px
+  &:hover
+    background-color: $hover-color
+  &:visited
+    color: $text-color
