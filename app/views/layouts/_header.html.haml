@@ -1,4 +1,4 @@
 .header
-  %p#header-title Handyman Rental
-  .item
-    = link_to "Equipments", '#'
+  = link_to "Handyman Rental", root_path, id: "header-title"
+  = link_to "Equipments", rentables_path, class: "item"
+  = link_to "Profile", '#', class: "item"

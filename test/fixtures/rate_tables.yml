@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rentable_id: 
+  hourly: 9.99
+  daily: 9.99
+  weekly: 9.99
+  late_fee: 9.99
+
+two:
+  rentable_id: 
+  hourly: 9.99
+  daily: 9.99
+  weekly: 9.99
+  late_fee: 9.99

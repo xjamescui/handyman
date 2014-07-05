@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Date booked:
+  = @rent_transaction.date_booked
+%p
+  %b Date start:
+  = @rent_transaction.date_start
+%p
+  %b Date end:
+  = @rent_transaction.date_end
+%p
+  %b Planned duration:
+  = @rent_transaction.planned_duration
+%p
+  %b Date delivered:
+  = @rent_transaction.date_delivered
+%p
+  %b Date returned:
+  = @rent_transaction.date_returned
+%p
+  %b Cancelled:
+  = @rent_transaction.cancelled
+%p
+  %b Rent price:
+  = @rent_transaction.rent_price
+%p
+  %b Actual price:
+  = @rent_transaction.actual_price
+
+= link_to 'Edit', edit_rent_transaction_path(@rent_transaction)
+\|
+= link_to 'Back', rent_transactions_path

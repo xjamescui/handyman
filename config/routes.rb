@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :rent_transactions
+  resources :rentables
+  resources :rent_items
+  
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

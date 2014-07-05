@@ -1,0 +1,35 @@
+%h1 Listing rent_transactions
+
+%table
+  %tr
+    %th Date booked
+    %th Date start
+    %th Date end
+    %th Planned duration
+    %th Date delivered
+    %th Date returned
+    %th Cancelled
+    %th Rent price
+    %th Actual price
+    %th
+    %th
+    %th
+
+  - @rent_transactions.each do |rent_transaction|
+    %tr
+      %td= rent_transaction.date_booked
+      %td= rent_transaction.date_start
+      %td= rent_transaction.date_end
+      %td= rent_transaction.planned_duration
+      %td= rent_transaction.date_delivered
+      %td= rent_transaction.date_returned
+      %td= rent_transaction.cancelled
+      %td= rent_transaction.rent_price
+      %td= rent_transaction.actual_price
+      %td= link_to 'Show', rent_transaction
+      %td= link_to 'Edit', edit_rent_transaction_path(rent_transaction)
+      %td= link_to 'Destroy', rent_transaction, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Rent transaction', new_rent_transaction_path

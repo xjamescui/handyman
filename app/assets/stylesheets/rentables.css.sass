@@ -1,0 +1,57 @@
+// Place all the styles related to the Rentables controller here.
+// They will automatically be included in application.css.
+// You can use Sass here: http://sass-lang.com/
+
+@import 'mixins'
+  
+img.rentable-image
+  height: 200px
+  background: white
+
+
+.edit-action-button
+  @include action-button(#495F7D, #526B8C, white)
+.dangerous-action-button
+  @include action-button(#DB4023, #F54828, white)
+.new-action-button
+  @include action-button(gray, darkgray, white)
+
+ul.rentables
+  li
+    border-radius: 5px
+    background-color: lightgray
+    list-style: none
+    width: 700px
+    min-width: 500px
+    padding: 5px
+    margin: 10px auto
+    vertical-align: top
+    img.rentable-image
+      height: 100px
+    .admin-functions
+      float: right
+      padding: 0 5px
+    .reserve-button
+      float: right
+      @include action-button(gray, darkgray, white)
+    .rentable-list-info
+      display: inline-block
+      vertical-align: top
+      h1
+        a
+          text-decoration: none
+          &:hover
+            color: darkgray
+            background-color: transparent
+      .quantity-text
+        font-size: 14px
+        &.available
+          color: green
+        &.not-available
+          color: red
+// show.html
+.reserve-action-button
+  @include action-button(green, darkgreen, white)
+
+    
+
