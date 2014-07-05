@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user_session/login'
+  get 'user_session/logout'
+
   resources :rent_transactions
   resources :rentables
   resources :rent_items

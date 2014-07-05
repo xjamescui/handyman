@@ -1,4 +1,12 @@
+:ruby
+  logged_in = session[:login]
 .header
   = link_to "Handyman Rental", root_path, id: "header-title"
-  = link_to "Equipments", rentables_path, class: "item"
-  = link_to "Profile", '#', class: "item"
+  - if !current_page?(root_path)
+    .header-items
+      - if !logged_in
+        = link_to "Profile", '#', class: "item"
+      = link_to "Equipments", rentables_path, class: "item"
+      - if logged_in
+        = link_to "Logout", user_session_logout_path, class: "item"
+        .item Hi, Manager
