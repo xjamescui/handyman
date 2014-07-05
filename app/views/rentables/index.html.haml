@@ -1,8 +1,8 @@
 :ruby
-  manager_access = params[:manager]
+  logged_in = session[:login]
 %h1 Rentables
 
-- if manager_access
+- if logged_in
   = link_to 'New Rentable', new_rentable_path, class: "new-action-button"
 
 %ul.rentables
@@ -17,9 +17,10 @@
           = "Store: #{rentable.location}"
         .quantity-text{class: "#{rentable.quantity == 0 ? "not-available" : "available"}"}
           = "#{rentable.quantity} available in store"
-      - if manager_access
+      - if logged_in
         .admin-functions
           = link_to 'Edit', edit_rentable_path(rentable), class: "edit-action-button"
           = link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "dangerous-action-button"
-      = link_to 'Reserve',rentable, class: "reserve-button"
+      - else
+        = link_to 'Reserve',rentable, class: "reserve-button"
 
