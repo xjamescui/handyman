@@ -15,6 +15,7 @@ class RentablesController < ApplicationController
   # GET /rentables/new
   def new
     @rentable = Rentable.new
+    @rentable.rate_table = RateTable.new
   end
 
   # GET /rentables/1/edit

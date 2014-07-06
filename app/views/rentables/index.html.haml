@@ -1,16 +1,16 @@
 :ruby
   logged_in = session[:login]
 %h1 Rentables
-
-- if logged_in
-  = link_to 'New Rentable', new_rentable_path, class: "new-action-button"
+.row.text-center
+  - if logged_in
+    = link_to 'New Rentable', new_rentable_path, class: "new-action-button"
 
 %ul.rentables
   - @rentables.each do |rentable|
     %li  
       = image_tag "#{image_or_none(rentable.image_name)}", class: "rentable-image"
       .rentable-list-info
-        %h1= link_to rentable.name, rentable
+        = link_to rentable.name, rentable, class: "name"
         .category
           = rentable.category
         .location

@@ -1,12 +1,15 @@
 :ruby
   logged_in = session[:login]
 .header
+  = image_tag 'logo_full.png', class: "header-logo"
   = link_to "Handyman Rental", root_path, id: "header-title"
   - if !current_page?(root_path)
     .header-items
+      = link_to "Equipments", rentables_path, class: "item"
       - if !logged_in
         = link_to "Profile", '#', class: "item"
-      = link_to "Equipments", rentables_path, class: "item"
+        .item | Hi, Customer
       - if logged_in
+        = link_to "Store Logs", store_overview_path, class: "item"
         = link_to "Logout", user_session_logout_path, class: "item"
-        .item Hi, Manager
+        .item | Hi, Manager

@@ -1,3 +1,6 @@
+:ruby
+  warehouses = ["Warehouse A", "Warehouse B", "Warehouse C", "Warehouse D"]
+  stores = ["Hamilton", "Waterloo", "London", "Barrie"]
 = form_for @rentable do |f|
   - if @rentable.errors.any?
     #error_explanation
@@ -5,18 +8,67 @@
       %ul
         - @rentable.errors.full_messages.each do |msg|
           %li= msg
+  %table.table.table-condensed.table-striped.edit-rentable
+    %tr
+      %td.field-label
+        Image
+      %td
+        - if @rentable.image_name.present?
+          = image_tag @rentable.image_name, class: 'rentable-image'
+        = button_tag "Upload", type: "button", class: 'btn btn-primary'
+    %tr
+      %td.field-label
+        = f.label :name
+      %td
+        = f.text_field :name
+    %tr
+      %td.field-label
+        = f.label :location
+      %td
+        = f.text_field :location
+    %tr
+      %td.field-label
+        = f.label :quantity
+      %td
+        %p= "Current Quantity: #{@rentable.quantity || 0}"
+        Query 1: Order
+        = f.number_field :quantity
+        more from
+        = select_tag 'warehouses', options_for_select(warehouses)
+        to
+        = select_tag 'stores', options_for_select(stores)
+        = link_to 'Add Query', nil, style: 'float:right'
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :quantity
-    = f.number_field :quantity
-  .field
-    = f.label :category
-    = f.text_field :category
-  .actions
-    = f.submit 'Save'
+    %tr
+      %td.field-label
+        = f.label :category
+      %td
+        = f.text_field :category
+
+    %tr
+      %td{ colspan: "2"}
+        %h4 Rates
+        %table.table.table-bordered
+          %tr
+            %td.field-label
+              = f.label :hourly
+            %td
+              = f.text_field :hourly
+          %tr
+            %td.field-label
+              = f.label :daily
+            %td
+              = f.text_field :daily
+          %tr
+            %td.field-label
+              = f.label :weekly
+            %td
+              = f.text_field :weekly
+          %tr
+            %td.field-label
+              = f.label :late_fee
+            %td
+              = f.text_field :late_fee
+
+  .row.text-center
+    = f.submit 'Save', disabled: true

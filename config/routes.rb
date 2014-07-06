@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'store/overview'
+
   get 'user_session/login'
   get 'user_session/logout'
 

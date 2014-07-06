@@ -1,0 +1,78 @@
+.row.text-center
+  %h1 Store Logs
+  .btn-group
+    = button_tag 'Download All', class: 'btn btn-primary'
+    = button_tag 'Settings', class: 'btn btn-info'
+    = button_tag 'Refresh Reports', class: 'btn btn-warning'
+
+%h2 Orders
+%h3
+  Pending Orders
+  = button_tag 'Download Full Report', class: 'btn btn-default'
+
+.mod-container
+  %table.table
+    %tr
+      %th Date
+      %th From-To
+      %th Item
+      %th Quantity
+      %th
+    - (1..3).each do
+      %tr
+        %td
+          = DateTime.yesterday
+        %td
+          = "#{@warehouses.sample} -> #{@stores.sample}"
+        %td
+          = "#{@rentables.sample.name}"
+        %td
+          = [*1..10].sample
+        %td
+          = button_tag 'Track',  class: 'btn btn-info'
+          = button_tag 'Cancel',  class: 'btn btn-danger'
+
+
+
+%h3
+  Received
+  = button_tag 'Download Full Report', class: 'btn btn-default'
+.mod-container
+  %table.table
+    %tr
+      %th Date
+      %th From-To
+      %th Item
+      %th Quantity
+
+    - (1..5).each do
+      %tr
+        %td
+          = DateTime.yesterday
+        %td
+          = "#{@warehouses.sample} -> #{@stores.sample}"
+        %td
+          = "#{@rentables.sample.name} has arrived"
+        %td
+          = [*1..10].sample
+
+%h2
+  Sales Analysis
+  = button_tag 'Download Full Report', class: 'btn btn-default'
+
+.mod-container
+  %strong= "Period: #{1.month.ago.to_date} - #{1.day.ago.to_date}"
+  %table.table
+    %tr
+      %th Store
+      %th Suggestions
+      %th
+    - @stores.each do |store|
+      %tr
+        %td
+          = store
+        %td
+          = "#{@rentables.sample.name} has a very high demand in this store. You should purchase #{[*1..10].sample} more of these..."
+        %td
+          = button_tag 'Read more', class: 'btn btn-info'
+
