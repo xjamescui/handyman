@@ -11,6 +11,13 @@
   %table.table.table-condensed.table-striped.edit-rentable
     %tr
       %td.field-label
+        Image
+      %td
+        - if @rentable.image_name.present?
+          = image_tag @rentable.image_name, class: 'rentable-image'
+        = button_tag "Upload", type: "button", class: 'btn btn-primary'
+    %tr
+      %td.field-label
         = f.label :name
       %td
         = f.text_field :name
