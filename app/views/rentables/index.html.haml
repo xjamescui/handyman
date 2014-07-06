@@ -20,7 +20,7 @@
       - if logged_in
         .admin-functions
           = link_to 'Edit', edit_rentable_path(rentable), class: "edit-action-button"
-          = link_to 'Destroy', rentable, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "dangerous-action-button"
+          = link_to 'Destroy','', :data => { :confirm => 'Are you sure?' }, class: "dangerous-action-button"
       - else
         = link_to 'Reserve',rentable, class: "reserve-button"
 
