@@ -1,0 +1,85 @@
+:ruby
+  logged_in = session[:login]
+.row.text-center
+  - if logged_in
+    %h1 Customer Rental History for: <b>Customer</b>
+  - else
+    %h1 Customer Rental History
+
+  .btn-group
+    = button_tag 'Print Receipts', class: 'btn btn-primary'
+
+- if logged_in
+  %h2 Stats
+  .mod-container
+    %table.table.table-striped.table-condensed
+      %tr
+        %td
+          %strong Customer Value
+        %td
+          .label.label-success Excellent
+      %tr
+        %td
+          %strong Average Return Quality
+        %td
+          .label.label-success Excellent
+
+%h2 Past Rentals
+.mod-container
+  %table.table.table-condensed.table-striped
+    %tr
+      %th Item
+      %th Period
+      %th Returned
+      - if logged_in
+        %th Return Quality
+    - (1..4).each do
+      %tr
+        %td
+          = @rentables.sample.name
+        %td
+          = "#{[*1..5].sample.week.ago.to_date} - #{[*1..5].sample.days.from_now.to_date}"
+        %td
+          yes
+        - if logged_in
+          %td
+            .label.label-success Excellent
+
+%h2 Current Rentals
+.mod-container
+  %table.table.table-condensed.table-striped
+    %tr
+      %th Item
+      %th Period
+      %th Payment Received
+      - if logged_in
+        %th
+    - (1..4).each do
+      %tr
+        %td
+          = @rentables.sample.name
+        %td
+          = "#{[*3..5].sample.days.ago.to_date} - #{[*1..5].sample.days.from_now.to_date}"
+        %td
+          = ["yes", "no"].sample
+        - if logged_in
+          %td
+            = button_tag 'Mark as Damaged', class: 'btn'
+            = button_tag 'Change Date', class: 'btn btn-info'
+            = button_tag 'Returned', class: 'btn btn-success'
+
+
+    - (1..2).each do
+      %tr
+        %td
+          = @rentables.sample.name
+          .label.label-danger new
+        %td
+          = "TODAY - #{[*1..5].sample.days.from_now.to_date}"
+        %td
+          = ["yes", "no"].sample
+        - if logged_in
+          %td
+            = button_tag 'Mark as Damaged', class: 'btn btn-dangers'
+            = button_tag 'Change Date', class: 'btn btn-info'
+            = button_tag 'Returned', class: 'btn btn-success'

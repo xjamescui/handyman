@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'customer/transactions'
+  get 'customer/all'
+
   get 'store/overview'
 
   get 'user_session/login'
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   resources :rent_transactions
   resources :rentables
   resources :rent_items
-  
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

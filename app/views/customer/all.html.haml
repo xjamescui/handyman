@@ -1,0 +1,9 @@
+%h1 Current Customers
+
+%ul
+  - @customers.each do |c|
+    %li
+      - if c == "Customer"
+        = link_to 'Customer', customer_transactions_path
+      - else
+        "#{c}"

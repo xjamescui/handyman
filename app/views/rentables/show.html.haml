@@ -1,23 +1,55 @@
+:ruby
+  logged_in = session[:login]
+
 %p#notice= notice
 
-.rentable-detail-container
-  %h1
-    = @rentable.name
-  = image_tag "#{image_or_none(@rentable.image_name)}", class: 'rentable-image'
-  %p
-    %b Location:
-    = @rentable.location
-  %p
-    %b Quantity:
-    = @rentable.quantity
-  %p
-    %b Category:
-    = @rentable.category
+.mod-container
+  .row.text-center
+    %h1.rentable-detail-title
+      = @rentable.name
+    = image_tag "#{image_or_none(@rentable.image_name)}", class: 'rentable-image'
+    .rentable-general-info
+      .panel.panel-default
+        .panel-heading
+          Information
+        %ul.list-group
+          %li.list-group-item
+            %strong Location:
+            = @rentable.location
+          %li.list-group-item
+            %strong Quantity:
+            = @rentable.quantity
+          %li.list-group-item
+            %strong Category:
+            = @rentable.category
+          %li.list-group-item
+            %strong Description:
+            It is a long established fact that a reader will be distracted
+            by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+    .rentable-rates-info
+      %table.table.table-striped.table-bordered
+        %tr
+          %th Hourly Rate
+          %th Daily Rate
+          %th Weekly Rate
+          %th Late Fee
+        %tr
+          %td
+            = number_to_currency(@rentable.hourly) || "TBD"
+          %td
+            = number_to_currency(@rentable.daily) || "TBD"
+          %td
+            = number_to_currency(@rentable.weekly) || "TBD"
+          %td
+            = number_to_currency(@rentable.late_fee) || "TBD"
 
-  = link_to 'Reserve', new_rent_item_path(rentable_id: @rentable.id), class: 'reserve-action-button'
+
+  .row.text-center
+    = link_to 'Reserve', new_rent_item_path(rentable_id: @rentable.id), class: 'reserve-action-button'
 
 
 
--# = link_to 'Edit', edit_rentable_path(@rentable)
--# \|
--# = link_to 'Back', rentables_path
+  - if logged_in
+    = link_to 'Edit', edit_rentable_path(@rentable)
+    \|
+  = link_to 'Back', rentables_path
