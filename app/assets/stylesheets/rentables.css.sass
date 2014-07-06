@@ -38,21 +38,21 @@ ul.rentables
     .rentable-list-info
       display: inline-block
       vertical-align: top
-      h1
-        a
-          text-decoration: none
-          &:hover
-            color: darkgray
-            background-color: transparent
+      a.name
+        text-decoration: none
+        font-size: 16px
+        &:hover
+          color: darkgray
       .quantity-text
         font-size: 14px
         &.available
           color: green
         &.not-available
           color: red
-// show.html
+
 .reserve-action-button
   @include action-button(green, darkgreen, white)
 
-    
-
+table.edit-rentable
+  .field-label
+    font-weight: bold

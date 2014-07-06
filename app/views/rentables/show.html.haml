@@ -14,7 +14,7 @@
     %b Category:
     = @rentable.category
 
-  = link_to 'Reserve', '#', class: 'reserve-action-button'
+  = link_to 'Reserve', new_rent_item_path(rentable_id: @rentable.id), class: 'reserve-action-button'
 
 
 

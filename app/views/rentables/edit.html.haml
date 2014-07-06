@@ -1,7 +1,9 @@
-%h1 Editing rentable
+.mod-container
+  %h1= @rentable.name
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @rentable
-\|
-= link_to 'Back', rentables_path
+
+  = link_to 'Show', @rentable
+  \|
+  = link_to 'Back', rentables_path

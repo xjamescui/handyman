@@ -1,4 +1,8 @@
-%h1 Welcome to Handyman Rentals
+.welcome-box
+  %h1
+    Welcome to the Handyman Rental Services
+  = image_tag 'logo_full.png', class: 'splash'
 
-= link_to 'Customer Access', rentables_path
-= link_to 'Store Manager Access', user_session_login_path
+  .portal-box
+    = link_to 'Customer Access', rentables_path, class: 'access customer'
+    = link_to 'Store Manager Access', user_session_login_path, class: 'access manager'

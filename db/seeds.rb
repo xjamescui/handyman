@@ -17,7 +17,10 @@ rentables = Rentable.create([
                             ])
 
 rate_tables = RateTable.create([
-                                   {rentable: rentables[0], daily: 65, weekly: 260}, # Compactor
-                                   {rentable: rentables[1], daily: 40, weekly: 154}, # Ground Drill
-                                   {rentable: rentables[4], daily: 15, weekly: 60} # Circular Saw
+                                   {rentable: rentables[0], hourly: 7.25, daily: 65, weekly: 260},
+                                   {rentable: rentables[1], hourly: 5.65, daily: 40, weekly: 154},
+                                   {rentable: rentables[2], hourly: 6.25, daily: 50, weekly: 200},
+                                   {rentable: rentables[3], hourly: 7.25, daily: 65, weekly: 260},
+                                   {rentable: rentables[4], hourly: 5.65, daily: 40, weekly: 154},
+                                   {rentable: rentables[5], hourly: 6.25, daily: 43, weekly: 186}
                                ])

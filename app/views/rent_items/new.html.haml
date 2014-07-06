@@ -1,6 +1,61 @@
-%h1 New Rent Item
+.mod-container
+  %h1.text-center= "Reservation for #{@rent_item.rentable.name}"
 
-- if @rentable
-  = image_tag "#{image_or_none(@rentable.image_name)}"
-= render 'form'
+  .row.text-center
+    = image_tag "#{image_or_none(@rent_item.rentable.image_name)}", class: 'rentable-image'
 
+  = form_for @rent_item do |f|
+    - if @rent_item.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@rent_item.errors.count, "error")} prohibited this rent_item from being saved:"
+        %ul
+          - @rent_item.errors.full_messages.each do |msg|
+            %li= msg
+
+    %table.table.table-condensed.table-striped
+      %tr
+        %td
+          Quantity
+        %td
+          1
+      %tr
+        %td
+          = f.label :date_start
+        %td
+          = f.datetime_select :date_start, disabled: true
+      %tr
+        %td
+          = f.label :date_end
+        %td
+          = f.datetime_select :date_end, disabled: true
+      %tr
+        %td
+          = f.label :planned_duration
+        %td
+          1 day
+
+    %h3.text-left Payment Info
+    %table.table.table-condensed.table-bordered
+      %tr
+        %td
+          Total
+        %td
+          = number_to_currency(@rent_item.rentable.daily)
+      %tr
+        %td
+          Payment method
+          = image_tag 'visa_mastercard.gif', height: "20px"
+        %td
+          = select_tag "payment_method", options_for_select([ "VISA", "MasterCard" ], "MasterCard")
+      %tr
+        %td
+          Card No.
+        %td
+          = text_field_tag "card_number"
+      %tr
+        %td
+          CVC (3 digits)
+        %td
+          = password_field_tag "cvc", nil, maxlength: 3
+    .row.text-center
+      = f.submit 'Submit', disabled: true
