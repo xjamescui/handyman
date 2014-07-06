@@ -7,9 +7,10 @@
     .header-items
       = link_to "Equipments", rentables_path, class: "item"
       - if !logged_in
-        = link_to "Profile", '#', class: "item"
+        = link_to "My Transactions", customer_transactions_path, class: "item"
         .item | Hi, Customer
       - if logged_in
+        = link_to "Customers", customer_all_path, class: "item"
         = link_to "Store Logs", store_overview_path, class: "item"
         = link_to "Logout", user_session_logout_path, class: "item"
         .item | Hi, Manager

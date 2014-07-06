@@ -1,7 +1,7 @@
 :ruby
   logged_in = session[:login]
-%h1 Rentables
 .row.text-center
+  %h1 Rentables
   - if logged_in
     = link_to 'New Rentable', new_rentable_path, class: "new-action-button"
 

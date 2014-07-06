@@ -3,17 +3,22 @@
 // You can use Sass here: http://sass-lang.com/
 
 @import 'mixins'
-  
+
 img.rentable-image
   height: 200px
   background: white
+  vertical-align: top
 
+h1
+  font-family: $oleo-script-font-family
 
 .edit-action-button
   @include action-button(#495F7D, #526B8C, white)
   padding: 10px 25px
+
 .dangerous-action-button
   @include action-button(#DB4023, #F54828, white)
+
 .new-action-button
   @include action-button(gray, darkgray, white)
 
@@ -24,11 +29,12 @@ ul.rentables
     list-style: none
     width: 700px
     min-width: 500px
-    padding: 5px
+    padding: 10px
     margin: 10px auto
     vertical-align: top
     img.rentable-image
       height: 100px
+      width: 100px
     .admin-functions
       float: right
       padding: 0 5px
@@ -52,7 +58,17 @@ ul.rentables
 
 .reserve-action-button
   @include action-button(green, darkgreen, white)
+  width: 100px
 
 table.edit-rentable
   .field-label
     font-weight: bold
+
+h1.rentable-detail-title
+  margin-bottom: 50px
+.rentable-general-info
+  display: inline-block
+  max-width: 50%
+.rentable-rates-info
+  max-width: 80%
+  margin: 0 auto

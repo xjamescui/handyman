@@ -8,12 +8,12 @@
 
 
 rentables = Rentable.create([
-                                {name: "Compactor", location: "Hamilton", quantity: 5, category: "Heavy", image_name: "compactor.png"},
-                                {name: "Ground Drill", location: "London", quantity: 5, category: "Light", image_name: "ground_drill.png"},
-                                {name: "Concrete Equipment", location: "Waterloo", quantity: 5, category: "Heavy", image_name: "concrete_equipment.png"},
-                                {name: "Circular Saw", location: "Hamilton", quantity: 5, category: "Light", image_name: "circular_saw.png"},
-                                {name: "Chainsaw", location: "Barrie", quantity: 5, category: "Light"},
-                                {name: "Generator Set", location: "Hamilton", quantity: 0, category: "Light"},
+                                {name: "Compactor", location: "Hamilton", quantity: 5, category: "Heavy", image_name: "compactor.jpg"},
+                                {name: "Ground Drill", location: "London", quantity: 5, category: "Light", image_name: "ground_drill.jpg"},
+                                {name: "Concrete Equipment", location: "Waterloo", quantity: 5, category: "Heavy", image_name: "concrete_equipment.jpg"},
+                                {name: "Circular Saw", location: "Hamilton", quantity: 5, category: "Light", image_name: "circular_saw.jpg"},
+                                {name: "Chainsaw", location: "Barrie", quantity: 5, category: "Light", image_name: "chain_saw.jpg"},
+                                {name: "Generator Set", location: "Hamilton", quantity: 0, category: "Light", image_name: "generator_set.jpg"},
                             ])
 
 rate_tables = RateTable.create([
