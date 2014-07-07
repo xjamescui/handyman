@@ -4,8 +4,9 @@
   - @customers.each do |c|
     %li
       - if c == "Customer"
-        = button_tag 'Excellent', class: "btn btn-success"
+        %span.label.label-success Excellent
         = link_to 'Customer', customer_transactions_path
       - else
-        = button_tag 'Average', class: "btn btn-warning"
-        = c
+        %span.label.label-warning Average
+        %span.disabled
+          = c
