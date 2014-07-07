@@ -7,7 +7,7 @@ class CustomerController < ApplicationController
   end
 
   def all
-    @customers = ["Customer", "John Doe", "Nancy Smith"]
+    @customers = ["Customer", "John Doe", "Nancy Smith", "Gandalf Gray", "Bilbo Baggins", "Frodo", "Orlando Bloom"]
   end
 
 end

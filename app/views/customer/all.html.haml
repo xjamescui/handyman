@@ -1,9 +1,11 @@
 %h1 Current Customers
 
-%ul
+%ul.customer-list
   - @customers.each do |c|
     %li
       - if c == "Customer"
+        = button_tag 'Excellent', class: "btn btn-success"
         = link_to 'Customer', customer_transactions_path
       - else
-        "#{c}"
+        = button_tag 'Average', class: "btn btn-warning"
+        = c
