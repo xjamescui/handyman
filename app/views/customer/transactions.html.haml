@@ -2,12 +2,19 @@
   logged_in = session[:login]
 .row.text-center
   - if logged_in
-    %h1 Customer Rental History for: <b>Customer</b>
+    %h1 Customer Rental Profile for: <b>Customer</b>
   - else
-    %h1 Customer Rental History
+    %h1 Customer Rental Profile
 
   .btn-group
     = button_tag 'Print Receipts', class: 'btn btn-primary'
+    - if logged_in
+      = button_tag 'Email Customer', class: 'btn btn-default'
+      -# = button_tag 'Disable Account', class: 'btn btn-warning'
+      -# = button_tag 'Delete Account', class: 'btn btn-danger'
+      %button.btn.btn-warning.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+        More Actions..
+        %span.caret
 
 - if logged_in
   %h2 Stats
