@@ -5,12 +5,64 @@
     = button_tag 'Settings', class: 'btn btn-info'
     = button_tag 'Refresh Reports', class: 'btn btn-warning'
 
-%h2 Orders
-%h3
-  Pending Orders
-  = button_tag 'Download Full Report', class: 'btn btn-default'
+%h2 Rental Log
 
 .mod-container
+  = label_tag 'Search'
+  = text_field_tag 'Search', 'Compactor', disabled: true
+  %h3 Current Rental
+  %table.table.table-striped
+    %tr
+      %th Item
+      %th Customer
+      %th Date Rented
+      %th Payment Received
+      %th
+    %tr
+      %td Compactor (Serial: a3r5g)
+      %td John Doe
+      %td= 2.days.ago
+      %td Yes
+      %td
+        = button_tag 'View Transaction', class: 'btn btn-info'
+    %tr
+      %td Compactor (Serial: b3t5h)
+      %td Customer
+      %td= DateTime.now
+      %td Yes
+      %td
+        = button_tag 'View Transaction', class: 'btn btn-info'
+%br
+.mod-container
+  = label_tag 'Search'
+  = text_field_tag 'Search', 'Compactor', disabled: true
+  %h3 Pending Rentals
+  %table.table.table-striped
+    %tr
+      %th Item
+      %th Customer
+      %th Date Rented
+      %th Payment Received
+      %th
+    - 3.times do |item|
+      %tr
+        %td= "Compactor (Serial: #{[*6..9].sample.to_s+"k5jp"})"
+        %td= @customers.sample
+        %td= [*1..3].sample.days.ago
+        %td= ["Yes", "No"].sample
+        %td
+          = button_tag 'View Transaction', class: 'btn btn-info'
+          = button_tag 'Process Request', class: 'btn btn-primary'
+
+
+
+%h2
+  Warehouse Orders
+  = button_tag 'Download Full Report', class: 'btn btn-default'
+.mod-container
+  %h3
+    Pending Orders
+    = button_tag 'Download Full Report', class: 'btn btn-warning'
   %table.table
     %tr
       %th Date
@@ -32,12 +84,11 @@
           = button_tag 'Track',  class: 'btn btn-info'
           = button_tag 'Cancel',  class: 'btn btn-danger'
 
-
-
-%h3
-  Received
-  = button_tag 'Download Full Report', class: 'btn btn-default'
+%br
 .mod-container
+  %h3
+    Received
+    = button_tag 'Download Full Report', class: 'btn btn-warning'
   %table.table
     %tr
       %th Date
@@ -75,4 +126,3 @@
           = "#{@rentables.sample.name} has a very high demand in this store. You should purchase #{[*1..10].sample} more of these..."
         %td
           = button_tag 'Read more', class: 'btn btn-info'
-
