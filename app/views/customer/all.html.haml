@@ -6,10 +6,13 @@
       - if c == "Customer"
         %span.label.label-success Excellent
         = link_to 'Customer', customer_transactions_path
+        .action-menu
+          = button_tag "Email", class: 'btn btn-info'
+          = button_tag "Disable", class: 'btn btn-danger'
       - else
         %span.label.label-warning Average
         %span.disabled
           = c
-      .action-menu
-        = button_tag "Email", class: 'btn btn-info'
-        = button_tag "Disable", class: 'btn btn-danger'
+        .action-menu
+          = button_tag "Email", class: 'btn btn-info'
+          = button_tag "Enable", class: 'btn btn-success'
